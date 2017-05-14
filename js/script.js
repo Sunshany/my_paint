@@ -2,118 +2,88 @@
  * Created by sarah amairi on 09/05/2017.
  */
 
+'use strict'
+
 $(function () {
 
-    var p = document.getElementById('crayon')
-    var l = document.getElementById('ligne')
-    var s = document.getElementById('rectangle')
-    var c = document.getElementById('cercle')
-    var e = document.getElementById('gomme')
-    var clicks = 0
-    var lastClick = [0,0]
-    curColor = "#000000"
+    const p = document.getElementById('crayon')
+    const l = document.getElementById('ligne')
+    const s = document.getElementById('rectangle')
+    const c = document.getElementById('cercle')
+    const e = document.getElementById('gomme')
+    var curColor = 'red'
     var clickColor = []
 
-    colorPurple = "#9370DB"
-    colorLGreen = "#90EE90"
-    colorYellow = "#FFFF00"
-    colorBlack = "#000000"
-    colorRed = "#FF0000"
-    colorGrey = "#808080"
-    colorWhite = "#FFFFFF"
-    colorOrange = "#ffc539"
-    colorLBlue = "#ADD8E6"
-    colorLPurple = "#9370DB"
-    colorPink = "#FF6DC3"
-    colorDBlue = "#38478B"
-    colorDGreen = "#26642D"
-    colorDPurple = "#A539E2"
+    var colorPurple = "#9370DB"
+    var colorLGreen = "#90EE90"
+    var colorYellow = "#FFFF00"
+    var colorBlack = "#000000"
+    var colorRed = "#FF0000"
+    var colorGrey = "#808080"
+    var colorWhite = "#FFFFFF"
+    var colorOrange = "#ffc539"
+    var colorLBlue = "#ADD8E6"
+    var colorLPurple = "#9370DB"
+    var colorPink = "#FF6DC3"
+    var colorDBlue = "#38478B"
+    var colorDGreen = "#26642D"
+    var colorDPurple = "#A539E2"
 
     var blackButton = document.getElementById('black').addEventListener("click", () => {
-        var curColor = colorBlack
-            console.log(curColor)
-
-    return curColor
+        curColor = colorBlack
+            return curColor
         })
-
     var whiteButton = document.getElementById('white').addEventListener("click", () => {
-        var curColor = colorWhite
-            console.log(curColor)
-    return curColor
-
-})
+        curColor = colorWhite
+            return curColor
+        })
     var greyButton = document.getElementById('grey').addEventListener("click", () => {
-        var curColor = colorGrey
-            console.log(curColor)
-    return curColor
-
-})
-    console.log(greyButton)
+        curColor = colorGrey
+            return curColor
+        })
     var redButton = document.getElementById('red').addEventListener("click", () => {
-        var curColor = colorRed
-            console.log(curColor)
-
-    return curColor
+        curColor = colorRed
+            return curColor
         })
     var orangeButton = document.getElementById('orange').addEventListener("click", () => {
-        var curColor = colorOrange
-            console.log(curColor)
-
-    return curColor
+        curColor = colorOrange
+            return curColor
         })
     var yellowButton = document.getElementById('yellow').addEventListener("click", () => {
-        var curColor = colorYellow
-            console.log(curColor)
-
-    return curColor
+        curColor = colorYellow
+            return curColor
         })
     var lightgreenButton = document.getElementById('lightgreen').addEventListener("click", () => {
-        var curColor = colorLGreen
-            console.log(curColor)
-
-    return curColor
+        curColor = colorLGreen
+            return curColor
         })
     var lightblueButton = document.getElementById('lightblue').addEventListener("click", () => {
-        var curColor = colorLBlue
-            console.log(curColor)
-
-    return curColor
+        curColor = colorLBlue
+            return curColor
         })
     var lightpurpleButton = document.getElementById('lightpurple').addEventListener("click", () => {
-        var curColor = colorLPurple
-            console.log(curColor)
-
-    return curColor
+        curColor = colorLPurple
+            return curColor
         })
     var pinkButton = document.getElementById('pink').addEventListener("click", () => {
-        var curColor = colorPink
-            console.log(curColor)
-
-    return curColor
+        curColor = colorPink
+            return curColor
         })
     var darkblueButton = document.getElementById('darkblue').addEventListener("click", () => {
-        var curColor = colorDBlue
-            console.log(curColor)
-
-    return curColor
+        curColor = colorDBlue
+            return curColor
         })
     var darkgreenButton = document.getElementById('darkgreen').addEventListener("click", () => {
-        var curColor = colorDGreen
-            console.log(curColor)
-
-    return curColor
+        curColor = colorDGreen
+            return curColor
         })
     var darkpurpleButton = document.getElementById('darkpurple').addEventListener("click", () => {
-        var curColor = colorDPurple
-            console.log(curColor)
-
-    return curColor
+        curColor = colorDPurple
+            return curColor
         })
 
-    console.log(curColor)
-
-    context = document.getElementById('canvas').getContext("2d")
-    canvasDiv = document.getElementById('canvas')
+    var context = document.getElementById('canvas').getContext("2d")
+    var canvasDiv = document.getElementById('canvas')
     canvasDiv.setAttribute('width', "800px")
     canvasDiv.setAttribute('height', "600px")
 
@@ -123,7 +93,7 @@ $(function () {
             // canvas = G_vmlCanvasManager.initElement(canvas)
         // }
 
-        $('#canvas').unbind()
+        $('#canvas').off()
 
         $('#canvas').mousedown(function(e){
             var mouseX = e.pageX - this.offsetLeft
@@ -166,8 +136,6 @@ $(function () {
         function redraw(){
 
             // context.clearRect(0, 0, context.canvas.width, context.canvas.height) // Clears the canvas
-            context.strokeStyle = "black"
-            context.lineJoin = "round"
 
             context.lineWidth = 5
             for(var i=0; i < clickX.length; i++) {
@@ -188,10 +156,10 @@ $(function () {
 
     var eventLine = l.addEventListener("click", () => {
 
-        var clicks = 0;
-        var lastClick = [0, 0];
+        var clicks = 0
+        var lastClick = [0, 0]
 
-        $('#canvas').unbind()
+        $('#canvas').off()
 
         document.getElementById('canvas').addEventListener('click', drawLine);
 
@@ -213,8 +181,8 @@ $(function () {
         function drawLine(e) {
             context = this.getContext('2d');
 
-            x = getCursorPosition(e)[0] - this.offsetLeft;
-            y = getCursorPosition(e)[1] - this.offsetTop;
+            var x = getCursorPosition(e)[0] - this.offsetLeft;
+            var y = getCursorPosition(e)[1] - this.offsetTop;
 
             if (clicks != 1) {
                 clicks++;
