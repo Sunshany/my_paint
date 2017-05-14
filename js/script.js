@@ -11,7 +11,106 @@ $(function () {
     var e = document.getElementById('gomme')
     var clicks = 0
     var lastClick = [0,0]
+    curColor = "#000000"
+    var clickColor = []
 
+    colorPurple = "#9370DB"
+    colorLGreen = "#90EE90"
+    colorYellow = "#FFFF00"
+    colorBlack = "#000000"
+    colorRed = "#FF0000"
+    colorGrey = "#808080"
+    colorWhite = "#FFFFFF"
+    colorOrange = "#ffc539"
+    colorLBlue = "#ADD8E6"
+    colorLPurple = "#9370DB"
+    colorPink = "#FF6DC3"
+    colorDBlue = "#38478B"
+    colorDGreen = "#26642D"
+    colorDPurple = "#A539E2"
+
+    var blackButton = document.getElementById('black').addEventListener("click", () => {
+        var curColor = colorBlack
+            console.log(curColor)
+
+    return curColor
+        })
+
+    var whiteButton = document.getElementById('white').addEventListener("click", () => {
+        var curColor = colorWhite
+            console.log(curColor)
+    return curColor
+
+})
+    var greyButton = document.getElementById('grey').addEventListener("click", () => {
+        var curColor = colorGrey
+            console.log(curColor)
+    return curColor
+
+})
+    console.log(greyButton)
+    var redButton = document.getElementById('red').addEventListener("click", () => {
+        var curColor = colorRed
+            console.log(curColor)
+
+    return curColor
+        })
+    var orangeButton = document.getElementById('orange').addEventListener("click", () => {
+        var curColor = colorOrange
+            console.log(curColor)
+
+    return curColor
+        })
+    var yellowButton = document.getElementById('yellow').addEventListener("click", () => {
+        var curColor = colorYellow
+            console.log(curColor)
+
+    return curColor
+        })
+    var lightgreenButton = document.getElementById('lightgreen').addEventListener("click", () => {
+        var curColor = colorLGreen
+            console.log(curColor)
+
+    return curColor
+        })
+    var lightblueButton = document.getElementById('lightblue').addEventListener("click", () => {
+        var curColor = colorLBlue
+            console.log(curColor)
+
+    return curColor
+        })
+    var lightpurpleButton = document.getElementById('lightpurple').addEventListener("click", () => {
+        var curColor = colorLPurple
+            console.log(curColor)
+
+    return curColor
+        })
+    var pinkButton = document.getElementById('pink').addEventListener("click", () => {
+        var curColor = colorPink
+            console.log(curColor)
+
+    return curColor
+        })
+    var darkblueButton = document.getElementById('darkblue').addEventListener("click", () => {
+        var curColor = colorDBlue
+            console.log(curColor)
+
+    return curColor
+        })
+    var darkgreenButton = document.getElementById('darkgreen').addEventListener("click", () => {
+        var curColor = colorDGreen
+            console.log(curColor)
+
+    return curColor
+        })
+    var darkpurpleButton = document.getElementById('darkpurple').addEventListener("click", () => {
+        var curColor = colorDPurple
+            console.log(curColor)
+
+    return curColor
+        })
+
+    console.log(curColor)
 
     context = document.getElementById('canvas').getContext("2d")
     canvasDiv = document.getElementById('canvas')
@@ -20,9 +119,9 @@ $(function () {
 
     var eventPen = p.addEventListener("click", () => {
 
-        if(typeof G_vmlCanvasManager != 'undefined') {
-            canvas = G_vmlCanvasManager.initElement(canvas)
-        }
+        // if(G_vmlCanvasManager != 'undefined') {
+            // canvas = G_vmlCanvasManager.initElement(canvas)
+        // }
 
         $('#canvas').unbind()
 
@@ -50,9 +149,9 @@ $(function () {
             paint = false
         })
 
-        var clickX = new Array()
-        var clickY = new Array()
-        var clickDrag = new Array()
+        var clickX = []
+        var clickY = []
+        var clickDrag = []
         var paint
 
         function addClick(x, y, dragging)
@@ -60,6 +159,8 @@ $(function () {
             clickX.push(x)
             clickY.push(y)
             clickDrag.push(dragging)
+            clickColor.push(curColor)
+
         }
 
         function redraw(){
@@ -78,6 +179,8 @@ $(function () {
                 }
                 context.lineTo(clickX[i], clickY[i])
                 context.closePath()
+                context.strokeStyle =
+                console.log(curColor)
                 context.stroke()
             }
         }
@@ -85,10 +188,10 @@ $(function () {
 
     var eventLine = l.addEventListener("click", () => {
 
-        $('#canvas').unbind()
-
         var clicks = 0;
         var lastClick = [0, 0];
+
+        $('#canvas').unbind()
 
         document.getElementById('canvas').addEventListener('click', drawLine);
 
@@ -119,8 +222,6 @@ $(function () {
                 context.beginPath();
                 context.moveTo(lastClick[0], lastClick[1]);
                 context.lineTo(x, y, 6);
-
-                context.strokeStyle = '#febace';
                 context.stroke();
 
                 clicks = 0;

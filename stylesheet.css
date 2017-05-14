@@ -31,13 +31,14 @@ h2 {
 #canvas {
     position: relative;
     margin-top: -200px;
-    border-style: dashed;
+    border-style: dotted;
     border-color: dimgray;
     background-color: white;
     border-radius: 20px;
     -moz-box-shadow: 0 0 5px #888;
     -webkit-box-shadow: 0 0 5px#888;
     box-shadow: 0 0 5px #888;
+    margin-bottom: 50px;
 }
 
 #main-logo {
@@ -131,4 +132,87 @@ h2 {
     background-repeat: no-repeat;
     background-color: rgb(122, 254, 170);
     margin-top: 20px;
+}
+
+.color-buttons {
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 0.5px;
+}
+
+#color-block {
+    display: table;
+    height: 220px;
+    background: white;
+    width: 90px;
+    position: relative;
+    margin-top: -430px;
+    margin-left: 5px;
+    border-radius: 15px;
+}
+
+.color-block {
+    width: 72px;
+    /*margin: 0;*/
+    display: flex;
+    margin-left: 24px;
+    margin-top: 10px;
+
+}
+
+.color-buttons {
+    margin-right: 10px;
+    border-radius: 7px;
+    -moz-box-shadow:    1px 1px 2px #ccc;
+    -webkit-box-shadow: 1px 1px 2px #ccc;
+    box-shadow:         1px 1px 2px #ccc;
+}
+
+#black {
+    background-color: black;
+}
+
+#grey {
+    background-color: grey;
+}
+
+#red {
+    background-color: red;
+}
+
+#orange {
+    background-color: #ffc539;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#lightgreen {
+    background-color: lightgreen;
+}
+
+#lightblue {
+    background-color: lightblue;
+}
+
+#lightpurple {
+    background-color: mediumpurple;
+}
+
+#pink {
+    background-color: #ff6dc3;
+}
+
+#darkblue {
+    background-color: #38478b;
+}
+
+#darkgreen {
+    background-color: #26642d;
+}
+
+#darkpurple {
+    background-color: #a539e2;
 }
